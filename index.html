@@ -16,425 +16,79 @@
       box-sizing: border-box;
       overflow-x: hidden;
     }
-    h1 {
-      font-size: 3em;
+    .maintenance-message {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
       text-align: center;
-      margin: 30px 0 10px;
-      animation: glow 2s ease-in-out infinite, slideDown 1.5s ease;
-      background: linear-gradient(90deg, #00c9ff, #92fe9d, #ff6a00);
+      padding: 0 10vw;
+      box-sizing: border-box;
+    }
+    .maintenance-message h1 {
+      font-size: 3em;
+      margin-bottom: 25px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #00c9ff, #ff6a00, #92fe9d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
-    .login-box, .dashboard {
-      width: 100vw;
-      min-width: unset;
-      max-width: none;
-      margin: 0;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px 8vw;
-      border-radius: 0;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      animation: fadeIn 1.5s ease-in-out;
-      box-sizing: border-box;
-    }
-    .dashboard { display: none; }
-    .login-box h2, .dashboard h2 {
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    .tron-address-box {
-      background-color: rgba(0, 201, 255, 0.1);
-      border: 2px solid #00c9ff;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 20px auto 20px auto;
-      box-shadow: 0 0 8px rgba(0, 201, 255, 0.2);
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-      box-sizing: border-box;
-    }
-    .tron-address-label {
-      font-weight: bold;
-      color: #00c9ff;
-      font-size: 1em;
-      margin-bottom: 6px;
-      display: block;
-      letter-spacing: 1px;
-    }
-    .tron-address-show {
-      font-size: 1.2em;
-      font-family: 'Courier New', monospace;
-      word-break: break-all;
-      color: #00c9ff;
-      background: rgba(255,255,255,0.07);
-      padding: 7px 0;
-      border-radius: 7px;
-      margin: 0;
-      font-weight: bold;
-      letter-spacing: 1px;
-      display: block;
-    }
-    .login-box p {
-      font-size: 1em;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
-      box-sizing: border-box;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      font-size: 1em;
-      border: none;
-      border-radius: 8px;
-      background-color: #00c9ff;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      margin-top: 10px;
-    }
-    button:hover {
-      background-color: #92fe9d;
-      transform: scale(1.05);
-    }
-    button:active {
-      transform: scale(0.95);
-      background-color: #38ef7d;
-    }
-    .section {
-      margin-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.2);
-      padding-top: 20px;
-    }
-    .section h3 {
-      color: #00c9ff;
-      margin-bottom: 10px;
-    }
-    .section p {
-      font-size: 1.1em;
-    }
-    .deposit-menu, .depot-actif, .mes-gains {
-      display: none;
-      margin-top: 20px;
-      padding: 20px;
-      background-color: rgba(0,0,0,0.3);
-      border-radius: 10px;
-      text-align: center;
-    }
-    /* Depot Menu Styles */
-    .fixed-depot-menu {
-      background: rgba(255,255,255,0.11);
-      border-radius: 16px;
-      padding: 28px 18px;
-      max-width: 420px;
-      margin: 20px auto;
-      box-shadow: 0 0 12px rgba(0,0,0,0.18);
-      text-align: center;
-      border: 2px solid #00c9ff;
-      display: none;
-    }
-    .fixed-depot-menu .min-depot-large {
-      font-size: 2em;
-      color: #ff6a00;
-      font-weight: bold;
+      animation: glow 2s ease-in-out infinite, slideDown 1.5s ease;
       letter-spacing: 2px;
-      margin-bottom: 18px;
-      display: block;
     }
-    .fixed-depot-menu .depot-label {
-      font-size: 1.1em;
-      color: #00c9ff;
-      font-weight: bold;
-      letter-spacing: 1px;
-      margin-bottom: 7px;
-      display: block;
-    }
-    .fixed-depot-menu .depot-address {
-      font-size: 1.15em;
-      font-family: 'Courier New', monospace;
-      background: rgba(255,255,255,0.07);
-      color: #00c9ff;
-      padding: 8px 0;
-      border-radius: 7px;
-      margin-bottom: 15px;
-      display: block;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    .fixed-depot-menu .qr-img {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.23);
-      width: 180px;
-      height: 180px;
-      max-width: 80vw;
-    }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-      .login-box, .dashboard {
-        padding: 20px 2vw;
-      }
-      .tron-address-box {
-        font-size: 0.95em;
-        padding: 10px 6px;
-      }
-      .fixed-depot-menu {
-        max-width: 99vw;
-        padding: 18px 3vw;
-        font-size: 0.95em;
-      }
-      .fixed-depot-menu .min-depot-large {
-        font-size: 1.3em;
-        margin-bottom: 11px;
-      }
-      .fixed-depot-menu .qr-img {
-        width: 110px;
-        height: 110px;
-      }
-    }
-    /* Transaction Styles */
-    .transaction-list {
-      background: rgba(255,255,255,0.08);
-      border-radius: 10px;
-      margin: 10px auto;
-      padding: 10px 8px;
-      max-width: 500px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.13);
-    }
-    .transaction-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 9px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.09);
-      font-size: 1.08em;
-    }
-    .transaction-item:last-child {
-      border-bottom: none;
-    }
-    .transaction-type-depot {
-      color: #00c9ff;
-      font-weight: bold;
-    }
-    .transaction-type-retrait {
-      color: #ff6a00;
-      font-weight: bold;
-    }
-    .transaction-address {
-      font-family: 'Courier New', monospace;
-      background: rgba(255,255,255,0.07);
-      border-radius: 5px;
-      padding: 2px 4px;
-      font-size: 0.98em;
+    .maintenance-message p {
+      font-size: 1.35em;
       color: #fff;
-      margin-left: 6px;
-      margin-right: 6px;
-    }
-    .transaction-amount {
+      margin-bottom: 20px;
+      background: rgba(255,255,255,0.11);
+      border-radius: 12px;
+      padding: 25px 18px;
       font-weight: bold;
-      color: #38ef7d;
-      margin-left: 8px;
+      box-shadow: 0 0 20px rgba(0,201,255,0.14);
     }
-    .auto-indication {
-      display: block;
-      text-align: center;
+    .maintenance-message .wait {
+      font-size: 1.1em;
       color: #ff6a00;
-      font-size: 1em;
-      margin: 10px 0 0 0;
-      font-style: italic;
-      font-weight: bold;
       background: rgba(255,255,255,0.04);
       border-radius: 7px;
-      padding: 6px 0;
+      padding: 7px 12px;
+      font-style: italic;
+      font-weight: bold;
       letter-spacing: 1px;
+      margin-top: 15px;
+      box-shadow: 0 0 12px rgba(255,106,0,0.09);
+    }
+    @media (max-width: 600px) {
+      .maintenance-message h1 {
+        font-size: 2em;
+      }
+      .maintenance-message p {
+        font-size: 1em;
+        padding: 15px 5vw;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Doubleur Crypto 24h</h1>
-
-  <div class="login-box" id="loginBox">
-    <h2>🔐 Connexion avec votre adresse TRON</h2>
-    <p>💬 Entrez une adresse TRON valide</p>
-    <form onsubmit="return validateAddress()">
-      <input type="text" id="wallet" placeholder="Votre adresse TRON" required>
-      <button type="submit">Accéder</button>
-    </form>
+  <div class="maintenance-message">
+    <h1>⏳ MISE EN PAUSE TEMPORAIRE</h1>
+    <p>
+      Notre site est momentanément indisponible.<br>
+      <span style="color:#ff6a00; font-size:1.35em;">Veuillez patienter 5h à 6h.</span><br>
+      <br>
+      <span>
+        Nous nous excusons pour cette interruption.<br>
+        Ne vous inquiétez pas, nous reviendrons très bientôt.<br>
+        Merci pour votre patience et votre confiance !
+      </span>
+    </p>
+    <div class="wait">⏱️ Veuillez patienter, le service sera rétabli sous peu.</div>
   </div>
-
-  <div class="dashboard" id="dashboard">
-    <h2>👤 Bienvenue sur Doubleur Crypto 24h</h2>
-    <div class="tron-address-box" id="userTronAddressBox" style="display:none;">
-      <span class="tron-address-label">Votre adresse TRON :</span>
-      <span class="tron-address-show" id="userTronAddress"></span>
-    </div>
-
-    <!-- Depot Menu Section -->
-    <div class="section">
-      <h3>🟢 Menu Dépôt</h3>
-      <button onclick="afficherDepotMenu()" id="btnDepotMenu">Faire dépôt</button>
-      <div class="fixed-depot-menu" id="depotMenu">
-        <span class="min-depot-large">Minimum dépôt : 5 TRX</span>
-        <span class="depot-label">Adresse TRON pour dépôt :</span>
-        <span class="depot-address">TBhyY3cy6VePQJR6cgx3Cq27wAKD7vqN6K</span>
-        <img
-          class="qr-img"
-          src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=TBhyY3cy6VePQJR6cgx3Cq27wAKD7vqN6K"
-          alt="QR Code pour dépôt TRON"
-        >
-      </div>
-    </div>
-
-    <div class="section">
-      <h3>💰 Dépôt instantané</h3>
-      <span class="auto-indication">Dépôts automatiques mis à jour toutes les 5 secondes</span>
-      <div class="transaction-list" id="depotList"></div>
-    </div>
-
-    <div class="section">
-      <h3>🔄 Retrait instantané</h3>
-      <span class="auto-indication">Retraits automatiques mis à jour toutes les 5 secondes</span>
-      <div class="transaction-list" id="retraitList"></div>
-    </div>
-
-    <div class="section">
-      <h3>📄 Mes Dépôt Actif</h3>
-      <p>Consultez vos dépôts actifs et leur statut de confirmation.</p>
-      <button onclick="showDepotActif()">Voir mes dépôts</button>
-      <div class="depot-actif" id="depotActif">
-        <p>Aucun dépôt actif trouvé. (Affichage démo)</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3>💸 Mes Gains</h3>
-      <p>Suivez vos gains et commissions de parrainage.</p>
-      <button onclick="showGains()">Voir mes gains</button>
-      <div class="mes-gains" id="mesGains">
-        <p>Gain total : 0.00 TRX<br>Commission de parrainage : 0.00 TRX</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3>📞 Contact Client</h3>
-      <p>Besoin d’aide ? Contactez-nous par WhatsApp, Telegram ou email. Assistance 24/7.</p>
-    </div>
-  </div>
-
-  <script>
-    let userWallet = '';
-    let transactionInterval = null;
-
-    function validateAddress() {
-      userWallet = document.getElementById('wallet').value.trim();
-      const isValid = /^T[a-zA-Z0-9]{33}$/.test(userWallet);
-      if (!isValid) {
-        alert("❌ Adresse TRON invalide. Veuillez entrer une adresse TRON valide.");
-        return false;
-      }
-      document.getElementById('loginBox').style.display = 'none';
-      document.getElementById('dashboard').style.display = 'block';
-      window.scrollTo(0, 0);
-
-      // Affiche l'adresse TRON de l'utilisateur
-      document.getElementById('userTronAddress').textContent = userWallet;
-      document.getElementById('userTronAddressBox').style.display = 'block';
-
-      // Mise à jour automatique des transactions
-      renderDepot();
-      renderRetrait();
-      if (transactionInterval) clearInterval(transactionInterval);
-      transactionInterval = setInterval(function() {
-        renderDepot();
-        renderRetrait();
-      }, 5000); // 5 secondes
-
-      return false;
-    }
-
-    function afficherDepotMenu() {
-      document.getElementById('depotMenu').style.display = 'block';
-      document.getElementById('btnDepotMenu').style.display = 'none';
-    }
-
-    function showDepotActif() {
-      document.getElementById('depotActif').style.display = 'block';
-      window.scrollTo(0, document.getElementById('depotActif').offsetTop);
-    }
-
-    function showGains() {
-      document.getElementById('mesGains').style.display = 'block';
-      window.scrollTo(0, document.getElementById('mesGains').offsetTop);
-    }
-
-    // Génération d'adresses TRON aléatoires
-    function randomTronAddress() {
-      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz123456789';
-      let addr = 'T';
-      for (let i = 0; i < 33; i++) {
-        addr += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return addr;
-    }
-
-    // Génération de montant aléatoire
-    function randomAmount(max = 371, min = 10) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    // Dépôt instantané : 3 dépôts aléatoires (hors adresse utilisateur)
-    function renderDepot() {
-      const depotList = document.getElementById('depotList');
-      let html = '';
-      for (let i = 0; i < 3; i++) {
-        html += `
-          <div class="transaction-item">
-            <span class="transaction-type-depot">Dépot</span>
-            <span class="transaction-address">${randomTronAddress()}</span>
-            <span class="transaction-amount">${randomAmount()} TRX</span>
-          </div>
-        `;
-      }
-      depotList.innerHTML = html;
-    }
-
-    // Retrait instantané : 3 retraits <50trx, 2 autres (hors adresse utilisateur)
-    function renderRetrait() {
-      const retraitList = document.getElementById('retraitList');
-      let html = '';
-      // 3 premiers retraits < 50trx
-      for (let i = 0; i < 3; i++) {
-        html += `
-          <div class="transaction-item">
-            <span class="transaction-type-retrait">Retrait</span>
-            <span class="transaction-address">${randomTronAddress()}</span>
-            <span class="transaction-amount">${randomAmount(49, 10)} TRX</span>
-          </div>
-        `;
-      }
-      // 2 autres retraits
-      for (let i = 0; i < 2; i++) {
-        html += `
-          <div class="transaction-item">
-            <span class="transaction-type-retrait">Retrait</span>
-            <span class="transaction-address">${randomTronAddress()}</span>
-            <span class="transaction-amount">${randomAmount(371, 10)} TRX</span>
-          </div>
-        `;
-      }
-      retraitList.innerHTML = html;
-    }
-  </script>
 </body>
 </html>
