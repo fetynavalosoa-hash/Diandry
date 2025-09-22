@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Doubleur Crypto 24h</title>
+  <title>En Maintenance - Doubleur TRON</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
@@ -42,7 +42,7 @@
       animation: glow 2s ease-in-out infinite, slideDown 1.5s ease;
       letter-spacing: 2px;
     }
-    .maintenance-message p {
+    .maintenance-message p, .maintenance-message ul {
       font-size: 1.35em;
       color: #fff;
       margin-bottom: 20px;
@@ -51,6 +51,7 @@
       padding: 25px 18px;
       font-weight: bold;
       box-shadow: 0 0 20px rgba(0,201,255,0.14);
+      margin-top: 0;
     }
     .maintenance-message .wait {
       font-size: 1.1em;
@@ -63,32 +64,60 @@
       letter-spacing: 1px;
       margin-top: 15px;
       box-shadow: 0 0 12px rgba(255,106,0,0.09);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 6px solid #ff6a00;
+      border-top: 6px solid #00c9ff;
+      border-radius: 50%;
+      animation: spin 1.3s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
     }
     @media (max-width: 600px) {
       .maintenance-message h1 {
         font-size: 2em;
       }
-      .maintenance-message p {
+      .maintenance-message p, .maintenance-message ul {
         font-size: 1em;
         padding: 15px 5vw;
+      }
+      .spinner {
+        width: 32px;
+        height: 32px;
+        border-width: 4px;
       }
     }
   </style>
 </head>
 <body>
   <div class="maintenance-message">
-    <h1>⏳ MISE EN PAUSE TEMPORAIRE</h1>
+    <h1>🛠️ EN MAINTENANCE</h1>
     <p>
-      Notre site est momentanément indisponible.<br>
-      <span style="color:#ff6a00; font-size:1.35em;">Veuillez patienter 5h à 6h.</span><br>
+      🔧 Nous travaillons actuellement sur la stabilité et la durabilité de notre plateforme <strong>Doubleur TRON</strong>.<br>
+      Une petite coupure est prévue ce soir dans le cadre de cette amélioration.<br>
       <br>
       <span>
-        Nous nous excusons pour cette interruption.<br>
-        Ne vous inquiétez pas, nous reviendrons très bientôt.<br>
-        Merci pour votre patience et votre confiance !
+        <strong>La durée de vie du site et de la plateforme est garantie jusqu'au 01/02/2026.</strong><br>
+        Au-delà de cette date, la continuité dépendra de l'engagement des utilisateurs.<br>
+        <br>
+        En raison de problèmes liés à la commission de parrainage (<em>referral</em>), ce système sera également amélioré pour mieux répondre à vos attentes.<br>
+        <br>
+        Merci de votre confiance et de votre fidélité, ne vous inquiétez pas, nous sommes engagés à vous offrir le meilleur service possible !
       </span>
     </p>
-    <div class="wait">⏱️ Veuillez patienter, le service sera rétabli sous peu.</div>
+    <div class="wait">
+      <div class="spinner"></div>
+      🚧 Veuillez patienter, le service sera rétabli après optimisation.
+    </div>
   </div>
 </body>
 </html>
